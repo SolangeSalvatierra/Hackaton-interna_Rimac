@@ -28,8 +28,8 @@ const vistaTmp = (routers) => {
     break;
         
   case 'loan':
-    contenedor.appendChild(loan());
     contenedor.appendChild(nav());
+    contenedor.appendChild(loan());
     break;
         // // case 'menu':
         // // contenedor.appendChild(menu());

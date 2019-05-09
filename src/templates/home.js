@@ -41,33 +41,35 @@ export const home = () => {
 
   <section class="container-fluid">
     <div class="row">
-    <span> 1 </span> 
-      <img src="img/prestamo.png" class="rounded float-left img-responsive" alt="Responsive image">
-      <br>
-      <span  class= "text-center"> Podrás solicitar préstamos 
-      <br> accesibles y sin tantos 
-      <br> <papeleos. 
-      </span>
-      <br>
+      <div class="col text-center">
+        <span> 1 </span> 
+          <img src="img/prestamo.png" class="rounded float-left img-responsive" alt="Responsive image">
+          <br>
+        <p  class= "text-center"> Podrás solicitar préstamos 
+          <br> accesibles y sin tantos 
+          <br> papeleos. 
+        </p>
+      </div>
     
-      <span> 2 </span> 
-      <img src="img/provehedores.png" class="rounded mx-auto d-block img-responsive " alt="Responsive image">
-      <br>
-      <span class="text-center"> encontrarás colaboradores y
-      <br> proveedores de confianza
-      <br> para tu negocio.
-      </span>
-      <br>
+      <div class="col text-center">
+        <span> 2 </span> 
+          <img src="img/provehedores.png" class="rounded mx-auto d-block img-responsive " alt="Responsive image">
+          <br>
+        <p class="text-center"> Encontrarás colaboradores y
+          <br> proveedores de confianza
+          <br> para tu negocio.
+        </p>
+      </div>
 
-    <span> 3 </span> 
-      <img src="img/crecer.png" class="rounded float-right img-responsive" alt="Responsive image">
-      <br>
-      <span class="text-center "> Información para hacer
-      <br> crecer tu negocio,tips y 
-      <br> recomendaciones.
-      </span>
-      <br>
-
+      <div class="col text-center">
+        <span> 3 </span> 
+          <img src="img/crecer.png" class="rounded float-right img-responsive" alt="Responsive image">
+          <br>
+        <p class="text-center "> Información para hacer
+          <br> crecer tu negocio,tips y 
+          <br> recomendaciones.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -75,52 +77,59 @@ export const home = () => {
   <p class="h2 my-5 text-center " > NUESTROS SERVICIOS </p>
     <div class="row">
       <div class="col">
-        <img src="https://user-images.githubusercontent.com/45084376/57448742-be134f80-721f-11e9-86ea-053d82eaa092.jpg" class= "img-responsive" alt="">
+        <img src="img/chica1.jpg " class= "img-responsive" alt="">
       </div>
-      <div class="col">
+      <div class="col-6">
         <p class="h5 my-5"> PIDE UN PRÉSTAMO PARA TU NEGOCIO </p>
         <br>
         <p> Encuentra préstamos a tu medida,sin tantos 
         <br> requisitos y de forma rápida
         <br>
-        <button type="button" class="btn btn-outline-warning btn-sm my-3">PIDE TU PRESTAMO </button>
+        <button type="button" id="prestamo" class="btn btn-outline-warning btn-sm my-3">PIDE TU PRESTAMO </button>
       </div>
 
       <div class="row">
-      <div class="col">
+      <div class="col-6">
         <p class="h5 my-5"> ENCUENTRA UN PERSONAL DE CONFIANZA </p>
         <br>
         <p> Ingresa tu perfil, cuéntanos qué necesitas
         <br> (proveedores,colaborados) y te conectamos con la
         <br> persona ideal para tu nengocio.
         <br>
-        <button type="button" class="btn btn-outline-warning btn-sm my-3">INCREMENTA TU RED DE CONTACTOS </button>
+        <button type="button" class="btn btn-outline-warning btn-sm my-3">INCREMENTA TU RED DE <br> CONTACTOS </button>
       </div>
       <div class="col">
-        <img src="https://user-images.githubusercontent.com/45084376/57450394-fd439f80-7223-11e9-8637-4698d6f55e51.jpg" class= "img-responsive" alt="">
+        <img src="img/chica2.jpg" class= "img-responsive" alt="">
       </div>
 
       <div class="row">
       <div class="col">
-        <img src="https://user-images.githubusercontent.com/45084376/57450399-ffa5f980-7223-11e9-81d3-066b2aa0d208.jpg" class= "img-responsive" alt="">
+        <img src="img/chica3.jpg" class= "img-responsive" alt="">
       </div>
-      <div class="col">
+      <div class="col-6">
         <p class="h5 my-5"> HAZ CRECER TU NEGOCIO </p>
         <br>
         <p> Te brindamos información del sector de tu  
         <br>negocio y te recomendamos soluciones para 
         <br>hacerlo crecer
         <br>
-        <button type="button" class="btn btn-outline-warning btn-sm my-3">HAZ CRECER TU NEGOCIO</button>
+        <button type="button" class="btn btn-outline-warning btn-sm my-3">HAZ CRECER TU <br> NEGOCIO</button>
       </div>
     </div>
   </section>
 
-  <section class="container-fluid ">
-  <p class="h4 my-5 text-center "> Y TAMBIÉN TE OFRECEMOS SOLUCIONES PARA INCREMENTAR TUS VENTAS </p>
-
-  </section>
+  <footer class="page-footer font-small dark bg-dark  text-center  py-4"> 
+  <div class="footer-copyright text-white foooter">
+    VISANET
+  </div>
+  </footer>
     `;
   inicio.innerHTML = template;
+
+  const btnPrestamo = inicio.querySelector('#prestamo');
+  btnPrestamo.addEventListener('click', () => {
+    changeHash('/loan');
+  });
+
   return inicio;
 };
