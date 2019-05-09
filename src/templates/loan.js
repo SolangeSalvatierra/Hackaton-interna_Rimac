@@ -1,5 +1,5 @@
 import { calcularPrestamo } from "../controller/calculoPrestamo.js";
-import { comparo } from "./thirdLoan.js";
+import { comparo, filtrado } from "./thirdLoan.js";
 
 export const loan = () => {
     const template = `
@@ -82,24 +82,28 @@ export const loan = () => {
 
     const menShowIndicator = () => {
         if (selectTiempo.selectedIndex === 0) {
-            calcularPrestamo(12)
+            return calcularPrestamo(12)
         } else if (selectTiempo.selectedIndex === 1) {
-            calcularPrestamo(24)
+            return calcularPrestamo(24)
         } else if (selectTiempo.selectedIndex === 2) {
-            calcularPrestamo(36) 
+            return calcularPrestamo(36) 
         } else if (selectTiempo.selectedIndex === 3) {
-            calcularPrestamo(48) 
+            return calcularPrestamo(48) 
         }else {
-            calcularPrestamo(60)
+            return calcularPrestamo(60)
         }
       };
+    
     selectTiempo.addEventListener('click', menShowIndicator);
 
     const btnSolicitar = div.querySelector('#btn-solicitar')
 
     btnSolicitar.addEventListener('click', () => {
+        const infoPresta = menShowIndicator()
+
         div.innerHTML='';
         div.appendChild(comparo())
+        div.appendChild(filtrado(infoPresta))
     })
 
     return div

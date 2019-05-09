@@ -1,17 +1,36 @@
 export const calcularPrestamo = (meses) => {
-    let monto = document.querySelector('#monto');
+    let monto = Number(document.querySelector('#monto').value);
     const pagoMensual = document.querySelector('#pago-mensual');
-    const interes = Number(monto.value) * (meses/100) 
-    const montoTotalAPagar = Number(monto.value) + interes 
-    const cuota = montoTotalAPagar/meses;
-    pagoMensual.innerHTML = cuota.toFixed(2);
-    document.querySelector('#prestamo').innerHTML = monto.value; 
+    const interes = monto * (meses/100) 
+    const montoTotalAPagar = monto + interes 
+    const cuota = Number((montoTotalAPagar/meses).toFixed(2));
+    pagoMensual.innerHTML = cuota;
+    document.querySelector('#prestamo').innerHTML = monto; 
     document.querySelector('#interes').innerHTML = interes; 
     document.querySelector('#total-a-pagar').innerHTML = montoTotalAPagar; 
+    console.log(cuota)
+    // console.log(
+    //     {
+    //         monto: monto,
+    //         pagoMensual : cuota,
+    //         interes: interes,
+    //         montoTotal: montoTotalAPagar   
+    //     }
+    // )
+    return {
+        monto: monto,
+        pagoMensual : cuota,
+        interes: interes,
+        montoTotal: montoTotalAPagar
+    }
 }
 
-
-    
+export const arrayBancos = [
+    { name: 'PRESTAMYPE', img: '', tcea: 12 },
+    { name: 'BCP', img: '', tcea: 20 },
+    { name: 'CAJA AREQUIPA', img: '', tcea: 25 },
+    { name: 'CAJA HUANCAYO', img: '', tcea: 20 }
+]; 
 
    
      

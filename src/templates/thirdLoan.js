@@ -24,7 +24,7 @@ export const comparo = () => {
         <span>Recibe tu préstamo</span>
     </div>
     <div>
-    <h2>Filtrado</h2>
+    <h2>Filtrar</h2>
         <div class="filtrado">
             <p>BUSQUEDA</p>
             <i class="fas fa-search"></i><input type="search"placeholder="ENTIDAD">
@@ -47,11 +47,42 @@ export const comparo = () => {
                 <option value="value5">5 años</option>
             </select>
         </div>
-
     </div>
-
     `; 
     const div = document.createElement('div');
     div.innerHTML = template; 
+
+    const btnSumar = div.querySelector('#btn-sumar');
+    const btnRestar = div.querySelector('#btn-restar'); 
+
+    btnSumar.addEventListener('click', () => {
+        monto.value = Number(monto.value) + 1000; 
+        
+    });
+    btnRestar.addEventListener('click', () => {
+        monto.value = Number(monto.value) - 1000; 
+        
+    });
+  
+    return div
+}
+
+export const filtrado = (obj) => {
+    const template = `
+     <p>Nombre</p>
+     <img src="" alt="">
+     <p>TIENE UN PRESTAMO DE:</p>
+     <span>${obj.monto}</span>
+     <p>¿CUANTO VOY A PAGAR?</p>
+     <span>${obj.pagoMensual}</span>
+     <p>INTERESES</p>
+     <span>${obj.interes}</span>
+     <p>MONTO TOTAL</p>
+     <span>${obj.montoTotal}</span>
+     <button>PIDE UN PRESTAMO</button>
+    `; 
+    const div = document.createElement('div');
+    div.innerHTML = template; 
+  
     return div
 }
