@@ -1,6 +1,7 @@
 import{home} from './templates/home.js';
 import{nav} from './templates/nav.js';
-import{loan} from './templates/loan.js';
+// import{loan} from './templates/loan.js';
+import { secondLoad } from './templates/second-load.js';
 
 
 
@@ -28,19 +29,17 @@ const vistaTmp = (routers) => {
         case 'home':
         contenedor.appendChild(home());
         break;
-        
         case 'loan':
-        contenedor.appendChild(loan());
+        contenedor.appendChild(secondLoad());
         contenedor.appendChild(nav());
         break;
         // // case 'menu':
         // // contenedor.appendChild(menu());
         // // contenedor.appendChild(navHome());
         // // break;
-        // // default: 
-        // // contenedor.appendChild(home()); 
-        // // contenedor.appendChild(home());
-        // // break;
+        default: 
+        contenedor.appendChild(home()); 
+        break;
     }
 };
 export const routerVN = () => {
