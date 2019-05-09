@@ -1,4 +1,4 @@
-import { calcularPrestamo } from "../controller/calculoPrestamo.js";
+import { calcularPrestamo, arrayBancos } from "../controller/calculoPrestamo.js";
 import { comparo, filtrado } from "./thirdLoan.js";
 
 export const loan = () => {
@@ -71,16 +71,16 @@ export const loan = () => {
 
     btnSumar.addEventListener('click', () => {
         monto.value = Number(monto.value) + 1000; 
-        menShowIndicator()
+        mostrarSelect()
     });
     btnRestar.addEventListener('click', () => {
         monto.value = Number(monto.value) - 1000; 
-        menShowIndicator()
+        mostrarSelect()
     });
 
     const selectTiempo = div.querySelector('#select-tiempo'); 
 
-    const menShowIndicator = () => {
+    const mostrarSelect = () => {
         if (selectTiempo.selectedIndex === 0) {
             return calcularPrestamo(12)
         } else if (selectTiempo.selectedIndex === 1) {
@@ -94,16 +94,19 @@ export const loan = () => {
         }
       };
     
-    selectTiempo.addEventListener('click', menShowIndicator);
+    selectTiempo.addEventListener('click', mostrarSelect);
 
     const btnSolicitar = div.querySelector('#btn-solicitar')
 
     btnSolicitar.addEventListener('click', () => {
-        const infoPresta = menShowIndicator()
+        const infoPresta = mostrarSelect()
 
         div.innerHTML='';
         div.appendChild(comparo())
-        div.appendChild(filtrado(infoPresta))
+        arrayBancos.forEach(info => {
+            div.appendChild(filtrado(info, infoPresta))
+        })
+        // div.appendChild(filtrado(infoPresta))
     })
 
     return div

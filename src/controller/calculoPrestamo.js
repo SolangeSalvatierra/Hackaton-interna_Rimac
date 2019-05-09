@@ -8,7 +8,6 @@ export const calcularPrestamo = (meses) => {
     document.querySelector('#prestamo').innerHTML = monto; 
     document.querySelector('#interes').innerHTML = interes; 
     document.querySelector('#total-a-pagar').innerHTML = montoTotalAPagar; 
-    console.log(cuota)
     // console.log(
     //     {
     //         monto: monto,
@@ -32,6 +31,21 @@ export const arrayBancos = [
     { name: 'CAJA HUANCAYO', img: '', tcea: 20 }
 ]; 
 
-   
-     
+export const calcularPrestamo2 = (tcea, meses) => {
+    let monto = Number(document.querySelector('#monto').value);
+    const pagoMensual = document.querySelector('#pago-mensual');
+    const interes = monto * (tcea/100) 
+    const montoTotalAPagar = monto + interes 
+    const cuota = Number((montoTotalAPagar/meses).toFixed(2));
+    pagoMensual.innerHTML = cuota;
+    document.querySelector('#prestamo').innerHTML = monto; 
+    document.querySelector('#interes').innerHTML = interes; 
+    document.querySelector('#total-a-pagar').innerHTML = montoTotalAPagar; 
+    return {
+        monto: monto,
+        pagoMensual : cuota,
+        interes: interes,
+        montoTotal: montoTotalAPagar
+    }
+}
 

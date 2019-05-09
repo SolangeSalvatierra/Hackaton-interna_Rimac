@@ -1,3 +1,5 @@
+import { calcularPrestamo2 } from "../controller/calculoPrestamo.js";
+
 export const comparo = () => {
     const template = `
     <section>
@@ -57,29 +59,50 @@ export const comparo = () => {
 
     btnSumar.addEventListener('click', () => {
         monto.value = Number(monto.value) + 1000; 
-        
+        mostrarSelect()
     });
     btnRestar.addEventListener('click', () => {
         monto.value = Number(monto.value) - 1000; 
-        
+        mostrarSelect()
     });
+
+    const selectTiempo = div.querySelector('#select-tiempo'); 
+
+    const mostrarSelect = () => {
+        if (selectTiempo.selectedIndex === 0) {
+            return calcularPrestamo2(tcea, 12)
+        } else if (selectTiempo.selectedIndex === 1) {
+            return calcularPrestamo2(tcea*2, 24)
+        } else if (selectTiempo.selectedIndex === 2) {
+            return calcularPrestamo2(tcea*3, 36) 
+        } else if (selectTiempo.selectedIndex === 3) {
+            return calcularPrestamo2(tcea*4, 48) 
+        }else {
+            return calcularPrestamo2(tcea*5, 60)
+        }
+      };
+    
+    selectTiempo.addEventListener('click', mostrarSelect);
   
     return div
 }
 
-export const filtrado = (obj) => {
+export const filtrado = (objBanco, obj) => {
     const template = `
-     <p>Nombre</p>
-     <img src="" alt="">
-     <p>TIENE UN PRESTAMO DE:</p>
-     <span>${obj.monto}</span>
-     <p>¿CUANTO VOY A PAGAR?</p>
-     <span>${obj.pagoMensual}</span>
-     <p>INTERESES</p>
-     <span>${obj.interes}</span>
-     <p>MONTO TOTAL</p>
-     <span>${obj.montoTotal}</span>
-     <button>PIDE UN PRESTAMO</button>
+    <div class="info-banco">
+        <p>${objBanco.name}</p>
+        <img src="" alt="">
+        <p>TIENE UN PRESTAMO DE:</p>
+        <span>${obj.monto}</span>
+        <span>TCEA: ${objBanco.tcea} %</span>
+        <p>¿CUANTO VOY A PAGAR?</p>
+        <span>${obj.pagoMensual}</span>
+        <p>INTERESES</p>
+        <span>${obj.interes}</span>
+        <p>MONTO TOTAL</p>
+        <span>${obj.montoTotal}</span>
+        <button>PIDE UN PRESTAMO</button>
+    </div>
     `; 
     const div = document.createElement('div');
     div.innerHTML = template; 
