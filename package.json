@@ -1,0 +1,23 @@
+{
+  "name": "hackaton-interna_rimac",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "sass": "^1.20.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SolangeSalvatierra/Hackaton-interna_Rimac.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SolangeSalvatierra/Hackaton-interna_Rimac/issues"
+  },
+  "homepage": "https://github.com/SolangeSalvatierra/Hackaton-interna_Rimac#readme"
+}
