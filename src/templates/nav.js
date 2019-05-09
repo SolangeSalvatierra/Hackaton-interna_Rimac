@@ -1,6 +1,6 @@
 export const nav = () => {
-    const header = document.createElement('div');
-    const temHeader = `
+  const header = document.createElement('div');
+  const temHeader = `
     <header class="">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -32,6 +32,6 @@ export const nav = () => {
     </div>
     </footer>
     `;
-    header.innerHTML = temHeader;
-    return header;
-}
+  header.innerHTML = temHeader;
+  return header;
+};
