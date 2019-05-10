@@ -92,4 +92,51 @@ h4 {
   padding: 0px 15px 30px !important;
 }
 
+.col-1 {
+  display: contents;
+}
+
+label {
+  display: block !important;
+}
+
+.col-5 {
+  display: inline-flex !important;
+}
+
+.col-4 {
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  display: table-cell;
+  max-width: 33.333333%;
+  font-size: smaller;
+  display: inline;
+}
+
+#resumen {
+  background: yellou !important;
+}
+
+.bg-light {
+  background-color: #C0C0C0 !important;
+  width: 120%;
+  height: 25%;
+}
+
+#btn-solicitar {
+  width: 100%;
+}
+
+#informacion {
+  display: inline-grid;
+}
+
+.col-8 {
+  text-align: -webkit-left;
+}
+
+.navbar-warning .navbar-nav .nav-link {
+  font-size: 12px;
+}
+
 /*# sourceMappingURL=main.css.map */

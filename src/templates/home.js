@@ -118,11 +118,6 @@ export const home = () => {
     </div>
   </section>
 
-  <footer class="page-footer font-small dark bg-dark  text-center  py-4"> 
-  <div class="footer-copyright text-white foooter">
-    VISANET
-  </div>
-  </footer>
     `;
   inicio.innerHTML = template;
 
