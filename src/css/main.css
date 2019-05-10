@@ -86,6 +86,7 @@ a {
 
 #botones {
   display: flex;
+  padding: 20px;
 }
 
 h4 {
@@ -137,6 +138,10 @@ label {
 
 .navbar-warning .navbar-nav .nav-link {
   font-size: 12px;
+}
+
+#mostrar-bancos {
+  display: grid;
 }
 
 /*# sourceMappingURL=main.css.map */

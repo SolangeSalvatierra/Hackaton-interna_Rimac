@@ -80,7 +80,7 @@ export const home = () => {
         <img src="img/chica1.jpg " class= "img-responsive" alt="">
       </div>
       <div class="col-6">
-        <p class="h5 my-5"> PIDE UN PRÉSTAMO PARA TU NEGOCIO </p>
+        <p class="h5 text-warning my-5"> PIDE UN PRÉSTAMO PARA TU NEGOCIO </p>
         <br>
         <p> Encuentra préstamos a tu medida,sin tantos 
         <br> requisitos y de forma rápida
@@ -90,7 +90,7 @@ export const home = () => {
 
       <div class="row">
       <div class="col-6">
-        <p class="h5 my-5"> ENCUENTRA UN PERSONAL DE CONFIANZA </p>
+        <p class="h5 text-warning my-5"> ENCUENTRA UN PERSONAL DE CONFIANZA </p>
         <br>
         <p> Ingresa tu perfil, cuéntanos qué necesitas
         <br> (proveedores,colaborados) y te conectamos con la
@@ -107,7 +107,7 @@ export const home = () => {
         <img src="img/chica3.jpg" class= "img-responsive" alt="">
       </div>
       <div class="col-6">
-        <p class="h5 my-5"> HAZ CRECER TU NEGOCIO </p>
+        <p class="h5 text-warning my-5"> HAZ CRECER TU NEGOCIO </p>
         <br>
         <p> Te brindamos información del sector de tu  
         <br>negocio y te recomendamos soluciones para 
