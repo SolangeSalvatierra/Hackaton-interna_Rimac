@@ -1,43 +1,48 @@
 import { calcularPrestamo, arrayBancos } from "../controller/calculoPrestamo.js";
-import { comparo, filtrado } from "./thirdLoan.js";
+import { comparo, mostrarCalculoBancos } from "./thirdLoan.js";
 
 export const loan = () => {
     const template = `
-    <section>
-    <h1>HOLA EMPRENDEDORA</h1>
-    <h3>Te otorgamos un préstamo para que sigas creciendo</h3>
-    <div>
-        <span class="numero">1</span>
-        <span>Calcula tu prestamo</span>
+    <section class="text-center">
+    <h3 class="my-5"> <strong> HOLA EMPRENDEDORA </h3>
+    <h4>Te otorgamos un préstamo para que sigas creciendo </h4>
+    <div class="row" id="botones">
+        <div class="col">
+        <div class="boton"> <a href="#"> 1 </a> </div>
+        <div class="col= text-center">  <p> Calcula tu prestamo </p> </div>
+        </div>
+        <div class="col">
+        <div class="boton"> <a href="#"> 2 </a> </div>
+        <div class="col= text-center"> <p> Ingresa tus datos </p> </div>
+        </div>
+        <div class="col">
+        <div class="boton"> <a href="#"> 3 </a> </div>
+        <div class="col= text-center"> <p> Compara Préstamos </p> </div>
+        </div>
+        <div class="col">
+        <div class="boton"> <a href="#"> 4 </a> </div>
+        <div class="col= text-center"> <p> Solicita tu préstamo </p> </div>
+        </div>
+        <div class="col">
+        <div class="boton"> <a href="#"> 5 </a> </div>
+         <div class="col=text-center"> <p> Recibe tu préstamo </p> </div>
+        </div>
     </div>
-    <div>
-        <span class="numero">2</span>
-        <span>Ingresa tus datos</span>
-    </div>
-    <div>
-        <span class="numero">3</span>
-        <span>Compara Préstamos</span>
-    </div>
-    <div>
-        <span class="numero">4</span>
-        <span>Solicita tu préstamo</span>
-    </div>
-    <div>
-        <span class="numero">5</span>
-        <span>Recibe tu préstamo</span>
-    </div>
-        <h3>Calcula tu préstamo</h3>
-        <div class="info">
-            <p class="titulo">¿Cuanto dinero necesitas?</p>
-            <div class="btn-input">
-                <button type="button" id="btn-restar">-</button>
-                <input type="number" id="monto" min="1000" value="10000">
-                <button type="button" id="btn-sumar">+</button>
+    <p class="h3 text-left my-5" > Calcula tu préstamo </p>
+    
+    <div class="row">
+        <div class="col-3">
+            <label class="my-4"> ¿Cuanto dinero necesitas? </label>
+            <div class="col-">
+                <button class="col-2 btn btn-warning" type="button" id="btn-restar"> - </button>
+                <input class="col-5" type="text" id="monto" min="1000" value="10000">
+                <button class="col-2 btn btn-warning" type="button" id="btn-sumar"> + </button>
             </div>
         </div>
-        <div class="info">
-            <p class="titulo">¿Cuanto tiempo?</p>
-            <select name="select" id="select-tiempo">
+    
+        <div class="col-3">
+            <label class="my-4"> ¿Cuanto tiempo? </label>
+            <select class="col-5" name="select" id="select-tiempo">
                 <option value="value1">12 meses</option> 
                 <option value="value2">24 meses</option>
                 <option value="value3">36 meses</option>
@@ -45,22 +50,36 @@ export const loan = () => {
                 <option value="value5">5 años</option>
             </select>
         </div>
-        <div class="info">
-            <p class="titulo">Debo pagar</p>
-            <span><span id="pago-mensual"></span> mensuales</span>
+        <div class="col-3">
+            <label class="my-4" > Debo pagar </label>
+            <div> <p class=" h2 col-3 " id="pago-mensual"> </p>  mensuales </div>
         </div>
-        <div class="info">
-            <p class="titulo">Resumen de Pago</p>
-            <div>
-                <span>Prestamo</span>
-                <span id="prestamo"></span>
-                <span>Intereses</span>
-                <span id="interes"></span>
-                <span>Total a pagar</span>
-                <span id="total-a-pagar"></span>
+        
+        <div class="col-3">
+            <label class="my-4"> Resumen de Pago </label>
+            
+            <div class="row bg-light rounded text-center">
+                <div class="col-">
+                    <div class="col-4"> Prestamo </div>
+                    <div class="col-4"> Intereses </div>
+                    <div class="col-4"> Total a pagar </div>
+                </div>
+                <div class="col">
+                    <div class="col-4" id="prestamo"> </div>
+                    <div class="col-4" id="interes"> </div>
+                    <div class="col-4"id="total-a-pagar"> </div>
+                    <label class="my-4" > Ver cronograma </label>
+                    <button class="btn-sm btn-danger" id="btn-solicitar"> Solicitar </button>
+                </div>
             </div>
         </div>
-    <button id="btn-solicitar">Solicitar</button>
+        <div class="row"
+            <div class="col-8" id="informacion">
+            <div class="col-8"> Préstamo basado en TCEA 12% </div>
+            <div class="col-8"> IMPORTANTE </div>
+            <div class="col-8 row bg-light rounded text-center""> El préstamo será otrogado por la emtidad finaciera elegida.
+            Juntas y VisaNet no es responsable de la gestón del crédito. </div>
+        </div>
     </section>
     `; 
     const div = document.createElement('div');
@@ -82,30 +101,29 @@ export const loan = () => {
 
     const mostrarSelect = () => {
         if (selectTiempo.selectedIndex === 0) {
-            return calcularPrestamo(12)
+            return calcularPrestamo(12, 12)
         } else if (selectTiempo.selectedIndex === 1) {
-            return calcularPrestamo(24)
+            return calcularPrestamo(24, 24)
         } else if (selectTiempo.selectedIndex === 2) {
-            return calcularPrestamo(36) 
+            return calcularPrestamo(36, 36) 
         } else if (selectTiempo.selectedIndex === 3) {
-            return calcularPrestamo(48) 
+            return calcularPrestamo(48, 48) 
         }else {
-            return calcularPrestamo(60)
+            return calcularPrestamo(60, 60)
         }
       };
-    
-    selectTiempo.addEventListener('click', mostrarSelect);
+    selectTiempo.addEventListener('change', mostrarSelect);
 
     const btnSolicitar = div.querySelector('#btn-solicitar')
 
     btnSolicitar.addEventListener('click', () => {
-        const infoPresta = mostrarSelect()
+        // const infoPresta = mostrarSelect()
 
         div.innerHTML='';
         div.appendChild(comparo())
-        arrayBancos.forEach(info => {
-            div.appendChild(filtrado(info, infoPresta))
-        })
+        // arrayBancos.forEach(info => {
+        //     div.appendChild(mostrarCalculoBancos(info, infoPresta))
+        // })
         // div.appendChild(filtrado(infoPresta))
     })
 

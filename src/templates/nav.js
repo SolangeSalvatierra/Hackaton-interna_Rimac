@@ -1,36 +1,37 @@
 export const nav = () => {
-    const header = document.createElement('div');
-    const temHeader = `
-    <header class="">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-    </div>
+  const header = document.createElement('div');
+  const temHeader = `
+  <header class="container-lg-fluid">
+  <div class="container-lg-fluid">
+      <nav class="navbar navbar-expand-lg navbar-warning bg-warning" class="chuleta"> 
+      <a class="navbar-brand" href="#">MUJER EMPRENDEDORA</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#/">PIDE TU PRÉSTAMO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#/">RED DE CONTACTOS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#/">HAZ CRECER TU NEGOCIO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#/">INICIAR SESIÓN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#/">REGISTRATE</a>
+          </li>
+        </ul>
+      </div>
     </nav>
-    </header>
-    <footer class="page-footer font-small dark bg-dark  text-center  py-2"> 
-    <div class="footer-copyright text-white foooter">
-       VISANET PERÚ
     </div>
-    </footer>
+</header>
+    
     `;
-    header.innerHTML = temHeader;
-    return header;
-}
+  header.innerHTML = temHeader;
+  return header;
+};

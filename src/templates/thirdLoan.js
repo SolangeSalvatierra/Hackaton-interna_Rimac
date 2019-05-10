@@ -1,31 +1,30 @@
-import { calcularPrestamo2 } from "../controller/calculoPrestamo.js";
+import { arrayBancos, calcularPrestamoBanco } from "../controller/calculoPrestamo.js";
+import { fourthLoad } from "./fourthLoan.js";
 
 export const comparo = () => {
     const template = `
-    <section>
-    <h1>HOLA EMPRENDEDORA</h1>
-    <h3>Te otorgamos un préstamo para que sigas creciendo</h3>
-    <div>
-        <span>1</span>
-        <span>Calcula tu prestamo</span>
+    <div class="row" id="botones">
+        <div class="col">
+        <div class="boton"> <a href="#"> 1 </a> </div>
+        <div class="col= text-center">  <p> Calcula tu prestamo </p> </div>
+        </div>
+        <div class="col">
+        <div class="boton"> <a href="#"> 2 </a> </div>
+        <div class="col= text-center"> <p> Ingresa tus datos </p> </div>
+        </div>
+        <div class="col">
+        <div class="boton"> <a href="#"> 3 </a> </div>
+        <div class="col= text-center"> <p> Compara Préstamos </p> </div>
+        </div>
+        <div class="col">
+        <div class="boton"> <a href="#"> 4 </a> </div>
+        <div class="col= text-center"> <p> Solicita tu préstamo </p> </div>
+        </div>
+        <div class="col">
+        <div class="boton"> <a href="#"> 5 </a> </div>
+         <div class="col=text-center"> <p> Recibe tu préstamo </p> </div>
+        </div>
     </div>
-    <div>
-        <span>2</span>
-        <span>Ingresa tus datos</span>
-    </div>
-    <div>
-        <span>3</span>
-        <span>Compara Préstamos</span>
-    </div>
-    <div>
-        <span>4</span>
-        <span>Solicita tu préstamo</span>
-    </div>
-    <div>
-        <span>5</span>
-        <span>Recibe tu préstamo</span>
-    </div>
-    <div>
     <h2>Filtrar</h2>
         <div class="filtrado">
             <p>BUSQUEDA</p>
@@ -49,13 +48,16 @@ export const comparo = () => {
                 <option value="value5">5 años</option>
             </select>
         </div>
-    </div>
+        <div class="row" id="mostrar-bancos"></div>
     `; 
-    const div = document.createElement('div');
+    const div = document.createElement('section');
+    div.setAttribute('id', 'tercera-pagina')
     div.innerHTML = template; 
 
     const btnSumar = div.querySelector('#btn-sumar');
     const btnRestar = div.querySelector('#btn-restar'); 
+
+    const mostrarBancos = div.querySelector('#mostrar-bancos')
 
     btnSumar.addEventListener('click', () => {
         monto.value = Number(monto.value) + 1000; 
@@ -70,42 +72,76 @@ export const comparo = () => {
 
     const mostrarSelect = () => {
         if (selectTiempo.selectedIndex === 0) {
-            return calcularPrestamo2(tcea, 12)
+            mostrarBancos.innerHTML = ''; 
+            return arrayBancos.forEach(obj => { 
+                const objCalculo = calcularPrestamoBanco(Number(monto.value), obj.tcea, 12)
+                console.log(objCalculo);
+                mostrarBancos.appendChild(mostrarCalculoBancos(obj, objCalculo))
+            })     
         } else if (selectTiempo.selectedIndex === 1) {
-            return calcularPrestamo2(tcea*2, 24)
+            mostrarBancos.innerHTML = '';
+            return arrayBancos.forEach(obj => { 
+                const objCalculo = calcularPrestamoBanco(Number(monto.value), obj.tcea, 24)
+                console.log(objCalculo);;
+                mostrarBancos.appendChild(mostrarCalculoBancos(obj, objCalculo))
+            })
         } else if (selectTiempo.selectedIndex === 2) {
-            return calcularPrestamo2(tcea*3, 36) 
-        } else if (selectTiempo.selectedIndex === 3) {
-            return calcularPrestamo2(tcea*4, 48) 
+            mostrarBancos.innerHTML = '';
+            return arrayBancos.forEach(obj => {
+                const objCalculo = calcularPrestamoBanco(Number(monto.value), obj.tcea, 36)
+                console.log(objCalculo);
+                mostrarBancos.appendChild(mostrarCalculoBancos(obj, objCalculo))
+            })
+        } else if (selectTiempo.selectedIndex === 3) { 
+            mostrarBancos.innerHTML = '';
+            return arrayBancos.forEach(obj => {
+                const objCalculo = calcularPrestamoBanco(Number(monto.value), obj.tcea, 48)
+                console.log(objCalculo);
+                mostrarBancos.appendChild(mostrarCalculoBancos(obj, objCalculo))
+            })
         }else {
-            return calcularPrestamo2(tcea*5, 60)
+            mostrarBancos.innerHTML = '';
+            return arrayBancos.forEach(obj => {
+                const objCalculo = calcularPrestamoBanco(Number(monto.value), obj.tcea, 60)
+                console.log(objCalculo);
+                mostrarBancos.appendChild(mostrarCalculoBancos(obj, objCalculo))
+            })
         }
       };
     
-    selectTiempo.addEventListener('click', mostrarSelect);
+    selectTiempo.addEventListener('change', mostrarSelect);
   
     return div
 }
 
-export const filtrado = (objBanco, obj) => {
+
+
+export const mostrarCalculoBancos = (objBanco, obj) => {
     const template = `
-    <div class="info-banco">
         <p>${objBanco.name}</p>
         <img src="" alt="">
         <p>TIENE UN PRESTAMO DE:</p>
         <span>${obj.monto}</span>
-        <span>TCEA: ${objBanco.tcea} %</span>
+        <span>TCEA: ${objBanco.tcea}%</span>
         <p>¿CUANTO VOY A PAGAR?</p>
         <span>${obj.pagoMensual}</span>
         <p>INTERESES</p>
         <span>${obj.interes}</span>
         <p>MONTO TOTAL</p>
         <span>${obj.montoTotal}</span>
-        <button>PIDE UN PRESTAMO</button>
-    </div>
+        <button id="btn-pide-prestamo">PIDE UN PRESTAMO</button>
     `; 
     const div = document.createElement('div');
+    div.setAttribute('class', 'col')
     div.innerHTML = template; 
+
+    const btnPidePrestamo = div.querySelector('#btn-pide-prestamo')
+
+    btnPidePrestamo.addEventListener('click', () => {
+        const terceraPagina = document.getElementById('tercera-pagina')
+        terceraPagina.innerHTML = ''; 
+        terceraPagina.appendChild(fourthLoad(objBanco, obj));
+    })
   
     return div
 }

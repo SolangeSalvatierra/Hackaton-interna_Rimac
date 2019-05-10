@@ -1,0 +1,142 @@
+.header {
+    top: 0%;
+    margin: 0%;
+    padding: 0%;
+    left: 0px;
+    background: url(../img/empresaria-1.jpg) no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+  }
+  
+  .header .navbar {
+    background-color: transparent !important;
+  }
+  
+  body {
+    padding: 0px 70px 0px 70px !important;
+  }
+  
+  img {
+    width: inherit;
+  }
+  
+  ::after ::before {
+    box-sizing: initial !important;
+  }
+  
+  .col {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    display: table-caption;
+  }
+  
+  .col-6 {
+    background-color: #f30e71 !important;
+    padding-left: 100px !important;
+  }
+  
+  .btn-lg {
+    line-height: 4 !important;
+    z-index: 1 !important;
+    display: flex;
+  }
+  
+  .btn-sm {
+    line-height: 3 !important;
+  }
+  
+  .rounded {
+    border-radius: 0.25rem !important;
+    width: 80%;
+    padding: 10px 25px 20px 25px;
+    margin: 20px;
+  }
+  
+  span {
+    font-size: 60px;
+    color: #fad21e;
+  }
+  
+  .bg-dark {
+    background-color: #000000 !important;
+  }
+  
+  .h3 {
+    color: #f30e71 !important;
+  }
+  
+  .boton {
+    width: 60px;
+    height: 60px;
+    background-color: #f30e71;
+    margin: 15px;
+    padding: 10px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    font-size: 25px;
+    text-transform: uppercase;
+    float: inherit;
+    display: inline-grid;
+  }
+  
+  a {
+    color: white !important;
+  }
+  
+  #botones {
+    display: flex;
+  }
+  
+  h4 {
+    padding: 0px 15px 30px !important;
+  }
+  
+  .col-1 {
+    display: contents;
+  }
+  
+  label {
+    display: block !important;
+  }
+  
+  .col-5 {
+    display: inline-flex !important;
+  }
+  
+  .col-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    display: table-cell;
+    max-width: 33.333333%;
+    font-size: smaller;
+    display: inline;
+  }
+  
+  #resumen {
+    background: yellou !important;
+  }
+  
+  .bg-light {
+    background-color: #C0C0C0 !important;
+    width: 120%;
+    height: 25%;
+  }
+  
+  #btn-solicitar {
+    width: 100%;
+  }
+  
+  #informacion {
+    display: inline-grid;
+  }
+  
+  .col-8 {
+    text-align: -webkit-left;
+  }
+  
+  .navbar-warning .navbar-nav .nav-link {
+    font-size: 12px;
+  }
+  
+  /*# sourceMappingURL=main.css.map */
